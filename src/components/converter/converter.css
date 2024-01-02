@@ -1,0 +1,20 @@
+.converter{
+    display: flex;
+}
+
+.converterValueSelect{
+    border: 0;
+    padding: 0;
+    margin: 0px 3px 0px 3px;
+    font-size: 1.17em;
+    font-weight: bold;    
+}
+
+.converterValueSelect:focus{
+    border: 0;
+}
+
+.converterValueSelect:focus-within{
+    border: 0;
+}
+

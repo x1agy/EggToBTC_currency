@@ -1,0 +1,14 @@
+.header{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.headerTitle::before{
+    content: url('https://img.icons8.com/emoji/48/egg-emoji.png');
+    position: absolute;
+    left: 0;
+}
+
+.headerTitle{
+    padding-left: 50px;
+}

@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/header/Header';
+import { useDispatch, useSelector } from 'react-redux';
+import { setBTCValue } from './state/BTCValue/btcValueSlice';
+import './App.css'
+import Converter from './components/converter/Converter';
+import { RootState } from './state/store';
 
 function App() {
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    fetchBTCData()
+  }, [])
+
+  async function fetchBTCData(){
+    const response = await fetch('https://blockchain.info/ticker')
+    const data = await response.json()
+    dispatch(setBTCValue(data.RUB.last))
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Header />
+      <Converter />
     </div>
   );
 }
